@@ -8,7 +8,7 @@ class Route {
     {
         // controller and default action
         $controller_name = 'Main';
-        $action_name = 'index';
+        $action_name = 'Index';
 
         $routes = explode('/', $_SERVER['REQUEST_URI']);
 
