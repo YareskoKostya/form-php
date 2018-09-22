@@ -4,7 +4,8 @@ namespace App\Core;
 
 class Route {
 
-    static function start() {
+    static function start()
+    {
         // controller and default action
         $controller_name = 'Main';
         $action_name = 'index';
@@ -28,14 +29,14 @@ class Route {
         // take file with controller class
         $controller_file = $controller_name . '.php';
         $controller_path = "app/controllers/" . $controller_file;
-        if (file_exists($controller_path)) {
+
+        try {
+            if (!file_exists($controller_path)) {
+                throw new \Exception('Could not find file');
+            }
             include "app/controllers/" . $controller_file;
-        } else {
-            /*
-              правильно было бы кинуть здесь исключение,
-              но для упрощения сразу сделаем редирект на страницу 404
-             */
-            Route::ErrorPage404();
+        } catch (\Exception $e) {
+            echo $e->getMessage();
         }
 
         // create a controller
@@ -43,20 +44,14 @@ class Route {
         $controller = new $controller_name;
         $action = $action_name;
 
-        if (method_exists($controller, $action)) {
+        try {
+            if (!method_exists($controller, $action)) {
+                throw new \Exception('Could not find method');
+            }
             // call the controller action
             $controller->$action();
-        } else {
-            // здесь также разумнее было бы кинуть исключение
-            Route::ErrorPage404();
+        } catch (\Exception $e) {
+            echo $e->getMessage();
         }
     }
-
-    function ErrorPage404() {
-        $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
-        header('HTTP/1.1 404 Not Found');
-        header("Status: 404 Not Found");
-        header('Location:' . $host . '404');
-    }
-
 }
