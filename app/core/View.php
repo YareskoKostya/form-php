@@ -6,6 +6,6 @@ class View
 {
 	function generate($content_view, $data = null)
 	{
-		include '../views/TemplateView.php';
+		include '../app/views/TemplateView.php';
 	}
 }

@@ -28,19 +28,19 @@ class Route {
 
         // take file with controller class
         $controller_file = $controller_name . '.php';
-        $controller_path = "app/controllers/" . $controller_file;
+        $controller_path = "../app/controllers/" . $controller_file;
 
         try {
             if (!file_exists($controller_path)) {
                 throw new \Exception('Could not find file');
             }
-            include "app/controllers/" . $controller_file;
+            include "../app/controllers/" . $controller_file;
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
 
         // create a controller
-        $controller_name = "app\\controllers\\" . $controller_name;
+        $controller_name = "App\\Controllers\\" . $controller_name;
         $controller = new $controller_name;
         $action = $action_name;
 
