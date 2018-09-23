@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div class="form-group" align="center">
-                    <label class="col-12 col-form-label">Education:</label>
+                    <h5><label class="col-12 col-form-label">Education:</label></h5>
                 </div>
                 <div class="form-group row">
                     <label for="example-date-input" class="col-md-4 col-form-label">Start Date:</label>
@@ -109,26 +109,42 @@
                 <div class="form-group"  align="center">
                     <input type="button" name="btnSubmit" class="btnContact" value="Add More"/>
                 </div>
-
-
-                <div class="form-group">
-                    <input type="text" name="name" class="form-control" placeholder="Your First Name *" value="" />
+                <div class="form-group" align="center">
+                    <h5><label class="col-12 col-form-label">Work:</label></h5>
                 </div>
-                <div class="form-group">
-                    <input type="text" name="surname" class="form-control" placeholder="Your Last Name *" value="" />
+                <div class="form-group row">
+                    <label for="example-date-input" class="col-md-4 col-form-label">Start Work:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="date" id="example-date-input">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
+                <div class="form-group row">
+                    <label for="example-date-input" class="col-md-4 col-form-label">End Work:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="date" id="example-date-input">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" />
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-4 col-form-label">Company Name:</label>
+                    <div class="col-8">
+                        <input class="form-control" type="text" id="example-text-input">
+                    </div>
                 </div>
-
-
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-4 col-form-label">Speciality:</label>
+                    <div class="col-8">
+                        <input class="form-control" type="text" id="example-text-input">
+                    </div>
+                </div>
+                <div class="form-group" id="">
+                </div>
+                <div class="form-group"  align="center">
+                    <input type="button" name="btnSubmit" class="btnContact" value="Add More"/>
+                </div>
             </div>
         </div>
         <div class="form-group" align="center">
-            <input type="submit" name="btnSubmit" class="btnContact" value="Submit" />
+            <input type="submit" name="btnSubmit" class="btnContact" value="Submit"/>
         </div>
     </form>
 </div>
