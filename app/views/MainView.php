@@ -15,7 +15,7 @@
                     <h4>Your Photo</h4>
                     <img src="https://profile.actionsprout.com/default.jpeg" id='img-upload'/>
                     <br/>
-                    <input type="file" id="imgInp" required hidden="true">
+                    <input type="file" id="imgInp" hidden>
                     <div class="form-group">
                         <input type="button" name="btnSubmit" class="btnContact" onclick="addPhoto()" value="Add Photo"/>
                     </div>
@@ -145,7 +145,7 @@
         </div>
         <br/>
         <div class="form-group" align="center">
-            <input type="submit" name="btnSubmit" class="btnContact" value="Submit"/>
+            <input type="submit" name="btnSubmit" class="btnContact"  onclick="check()" value="Submit"/>
         </div>
     </form>
 </div>
