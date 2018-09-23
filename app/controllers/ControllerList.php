@@ -27,6 +27,6 @@ class ControllerList extends Controller
     {
         $this->model->addData();
         $data = $this->model->getData();
-        $this->view->generate('list_view.php', $data);
+        $this->view->generate('ListView.php', $data);
     }
 }
