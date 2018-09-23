@@ -7,7 +7,7 @@
  */
 ?>
 <div class="container contact-form" align="left">
-    <form action="/list" method="post">
+    <form enctype="multipart/form-data" action="/list" method="post">
         <h3 align="center">Fill in resume</h3>
         <div class="row">
             <div class="col-md-6">
@@ -15,7 +15,7 @@
                     <h4>Your Photo</h4>
                     <img src="https://profile.actionsprout.com/default.jpeg" id='img-upload'/>
                     <br/>
-                    <input type="file" id="imgInp" hidden>
+                    <input type="file" name="photo" id="imgInp" hidden>
                     <div class="form-group">
                         <input type="button" name="btnSubmit" class="btnContact" onclick="addPhoto()" value="Add Photo"/>
                     </div>
