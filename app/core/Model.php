@@ -17,7 +17,7 @@ class Model {
                     $settings['charset']
                 ),
                 $settings['username'],
-                $settings['password']);
+                $settings['password'], [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]);
             if (!$this->pdo) {
                 throw new \Exception('Could not connect to DB ');
             }

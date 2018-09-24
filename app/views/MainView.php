@@ -141,6 +141,12 @@
                 <div class="form-group"  align="center">
                     <input type="button" name="btnSubmit" class="btnContact" onclick="addWork()" value="Add More"/>
                 </div>
+                <div class="form-group row">
+                    <label for="text-input" class="col-4 col-form-label">Your Interests:</label>
+                    <div class="col-8">
+                        <input class="form-control" type="text" name="interests" id="text-input" required>
+                    </div>
+                </div>
             </div>
         </div>
         <br/>

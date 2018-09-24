@@ -80,12 +80,12 @@ class ModelList extends Model
             }
         }
 
-        $query = "INSERT INTO list_users VALUES (NULL, :namesurname, :email)";
+        $query = "INSERT INTO resume_db.list_users VALUES (NULL, :namesurname, :email)";
         $listus = $this->pdo->prepare($query);
         $namesurname = $name . ' ' . $surname;
         $listus->execute(['namesurname' => $namesurname, 'email' => $email]);
 
-        $query2 = "INSERT INTO user_resume VALUES (NULL, :name, :surname, :birthdate, :country, :tel, :email, :address,"
+        $query2 = "INSERT INTO resume_db.user_resume VALUES (NULL, :name, :surname, :birthdate, :country, :tel, :email, :address,"
             . ":datebeginstudy0, :dateendstudy0, :studyname0, :professionstudy0, :doctor0, :datebeginstudy1, "
             . ":dateendstudy1, :studyname1, :professionstudy1, :doctor1, :datebeginstudy2, :dateendstudy2, :studyname2,"
             . ":professionstudy2, :doctor2, :datebeginstudy3, :dateendstudy3, :studyname3, :professionstudy3, :doctor3,"
@@ -115,7 +115,7 @@ class ModelList extends Model
     }
 
     public function getData() {
-        $query = "SELECT * FROM list_users";
+        $query = "SELECT * FROM resume_db.list_users";
         $listus = $this->pdo->query($query);
         return $listus;
     }
