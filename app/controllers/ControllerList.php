@@ -12,11 +12,9 @@ use App\Core\Controller;
 use App\Core\View;
 use App\Models\ModelList;
 
-include '../files/config.php';
-
 class ControllerList extends Controller
 {
-    function __construct()
+    function __construct($settings)
     {
         parent::__construct();
         $this->model = new ModelList($settings);

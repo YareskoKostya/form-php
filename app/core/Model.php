@@ -8,9 +8,6 @@ class Model {
 
     public function __construct(array $settings) {
         try{
-            if (!$this->pdo) {
-                throw new \Exception('Could not connect to DB ');
-            }
             $this->pdo = new \PDO(
                 sprintf (
                     'mysql:host=%s;dbname=%s;port=%s;charset=%s',
@@ -21,6 +18,10 @@ class Model {
                 ),
                 $settings['username'],
                 $settings['password']);
+            if (!$this->pdo) {
+                throw new \Exception('Could not connect to DB ');
+            }
+
         } catch (\Exception $e){
                 echo $e->getMessage();
         }
