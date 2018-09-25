@@ -20,7 +20,7 @@ class ControllerResume extends Controller
         $this->view = new View();
     }
 
-    function action_index() {
+    function actionIndex() {
         $data = $this->model->getData();
         $this->view->generate('ResumeView.php', $data);
     }

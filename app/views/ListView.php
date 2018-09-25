@@ -40,4 +40,9 @@
         </table>
     </form>
 </div>
-<script src="../js/main.js"></script>
+<script>
+    function showResume(id) {
+        $("input[type=text]").val(id);
+        document.getElementById("form").submit();
+    }
+</script>
