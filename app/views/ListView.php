@@ -8,7 +8,7 @@
 ?>
 <div class="container contact-form" align="center">
     <h2>List of resumes</h2>
-    <form action="/resume" id='form' method="POST">
+    <form action="/Resume" id='form' method="POST">
         <input name='id' type="text" value="" hidden>
         <table class="table table-striped table-hover">
             <thead class="thead-dark">
