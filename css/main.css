@@ -45,3 +45,16 @@ body{
     width: 350px;
     margin-bottom: 30px;
 }
+#pointer{
+    cursor: pointer;
+}
+.contact-form h2{
+    padding-top: 5%;
+    color: #0062cc;
+}
+td{
+    color: #0062cc;
+}
+.col-12{
+    color: #0062cc;
+}
