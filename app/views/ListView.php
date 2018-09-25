@@ -7,42 +7,37 @@
  */
 ?>
 <div class="container contact-form" align="center">
-    <h2 style="position: relative; left: 50px">List of resumes</h2>
+    <h2>List of resumes</h2>
     <form action="/resume" id='form' method="POST">
         <input name='id' type="text" value="" hidden>
-        <table style="position: relative; left: 50px" cellpadding="7" border="2">
-            <tr>
-                <td>
-                    Name, surname
-                </td>
-                <td>
-                    email
-                </td>
-            </tr>
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name, surname</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
             <?php
             while ($datalist = $data->fetch()) {
                 ?>
-                <tr onclick="showResume(<?php echo $datalist['id']; ?>)">
+                <tr id="pointer" onclick="showResume(<?php echo $datalist['id']; ?>)">
+                    <th scope="row">
+                        <?php echo $datalist['id']; ?>
+                    </th>
                     <td>
-                        <?php
-                        echo $datalist['name, surname'];
-                        ?>
+                        <?php echo $datalist['name, surname']; ?>
                     </td>
                     <td>
-                        <?php
-                        echo $datalist['email'];
-                        ?>
+                        <?php echo $datalist['email']; ?>
                     </td>
                 </tr>
                 <?php
             }
             ?>
+            </tbody>
         </table>
     </form>
 </div>
-<script>
-    function showResume(id) {
-        $("input[type=text]").val(id);
-        document.getElementById("form").submit();
-    }
-</script>
+<script src="../js/main.js"></script>
