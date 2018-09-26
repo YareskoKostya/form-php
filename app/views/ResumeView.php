@@ -54,7 +54,12 @@
                     <td colspan="2" id="blue" align="center">Education:</td>
                 </tr>
                 <?php for ($i = 0; $i < 5; $i++) {
-                    ?>
+                    if ($i > 0 && $dataresume["datebeginstudy$i"] !== NULL) { ?>
+                        <tr>
+                        <td colspan="2" align="center"></td>
+                        </tr>
+                        <?php
+                    }?>
                     <tr <?php if ($dataresume["datebeginstudy$i"] == NULL) { ?> hidden="" <?php } ?>>
                         <td class="font-italic" id="black">
                             Start Date:
@@ -112,7 +117,12 @@
                 </tr>
                 <?php
                 for ($j = 0; $j < 5; $j++) {
-                    ?>
+                    if ($j > 0 && $dataresume["datebeginwork$j"] !== NULL) { ?>
+                        <tr>
+                            <td colspan="2" align="center"></td>
+                        </tr>
+                        <?php
+                    }?>
                     <tr <?php if ($dataresume["datebeginwork$j"] == NULL) { ?> hidden="" <?php } ?>>
                         <td class="font-italic" id="black">
                             Start Work:
