@@ -15,25 +15,27 @@
         <div class="col-md-6">
             <div class="form-group" align="center">
                 <h4>Photo</h4>
-                <?php echo "<img src='" . $dataresume['photo'] . "'/>"; ?>
+                <?php
+                echo '<img width="350px" src="data:image/jpeg;base64,' . base64_encode($dataresume['photo']) . '" />';
+                ?>
             </div>
         </div>
         <div class="col-md-6">
-            <table>
+            <table  class="table">
                 <tr>
-                    <td>name</td>
+                    <td id="black">First Name:</td>
                     <td><?php echo $dataresume['name']; ?></td>
                 </tr>
                 <tr>
-                    <td>surname</td>
+                    <td>Last Name:</td>
                     <td><?php echo $dataresume['surname'];?></td>
                 </tr>
                 <tr>
-                    <td>birthdate</td>
+                    <td>Birthdate:</td>
                     <td><?php echo $dataresume['birthdate'];?></td>
                 </tr>
                 <tr>
-                    <td>country</td>
+                    <td>Country</td>
                     <td><?php echo $dataresume['country'];?></td>
                 </tr>
                 <tr>
