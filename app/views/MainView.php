@@ -8,7 +8,7 @@
 ?>
 <div class="container contact-form" align="left">
     <form enctype="multipart/form-data" action="/List" method="post">
-        <h3 align="center">Fill in resume</h3>
+        <h2 id="h2main" align="center">Fill in resume</h2>
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group" align="center">

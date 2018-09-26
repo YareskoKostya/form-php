@@ -17,12 +17,15 @@ body{
     width: 350px;
 }
 .contact-form form{
-    padding: 5%;
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-top: 3%;
+    padding-bottom: 5%;
 }
 .contact-form label{
     font-weight: bold;
 }
-.contact-form h3{
+#h2main{
     margin-bottom: 4%;
     color: #0062cc;
 }
@@ -48,13 +51,29 @@ body{
 #pointer{
     cursor: pointer;
 }
-.contact-form h2{
+#h2list{
     padding-top: 5%;
     color: #0062cc;
 }
-td{
+#blue{
+    font-size: 25px;
     color: #0062cc;
 }
 .col-12{
     color: #0062cc;
+}
+#black{
+    font-size: 18px;
+    color: black;
+}
+#bluelist{
+    color: #0062cc;
+}
+#h2res{
+    padding-top: 5%;
+    padding-bottom: 3%;
+    color: #0062cc;
+}
+.row{
+    padding-bottom: 5%;
 }
