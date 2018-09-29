@@ -74,71 +74,15 @@
                 <div class="form-group" align="center">
                     <h5><label class="col-12 col-form-label">Education:</label></h5>
                 </div>
-                <div class="form-group row">
-                    <label for="date-input" class="col-md-4 col-form-label">Start Date:</label>
-                    <div class="col-md-8">
-                        <input class="form-control" type="date" name="datebeginstudy0" id="date-input" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="date-input" class="col-md-4 col-form-label">End Date:</label>
-                    <div class="col-md-8">
-                        <input class="form-control" type="date" name="dateendstudy0" id="date-input" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="text-input" class="col-4 col-form-label">Institution Name:</label>
-                    <div class="col-8">
-                        <input class="form-control" type="text" name="studyname0" id="text-input" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="text-input" class="col-4 col-form-label">Speciality:</label>
-                    <div class="col-8">
-                        <input class="form-control" type="text" name="professionstudy0" id="text-input" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="text-input" class="col-4 col-form-label">Academic Degree:</label>
-                    <div class="col-8">
-                        <input class="form-control" type="text" name="doctor0" id="text-input" required>
-                    </div>
-                </div>
-                <div class="form-group" id="inputstudy0">
-                </div>
-                <div class="form-group"  align="center">
+                <?php include '../app/views/EducationView.php'; ?>
+                <div class="form-group"  id="study" align="center">
                     <input type="button" name="btnSubmit" class="btnContact" onclick="addStudy()" value="Add More"/>
                 </div>
                 <div class="form-group" align="center">
                     <h5><label class="col-12 col-form-label">Work:</label></h5>
                 </div>
-                <div class="form-group row">
-                    <label for="date-input" class="col-md-4 col-form-label">Start Work:</label>
-                    <div class="col-md-8">
-                        <input class="form-control" type="date" name="datebeginwork0" id="date-input" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="date-input" class="col-md-4 col-form-label">End Work:</label>
-                    <div class="col-md-8">
-                        <input class="form-control" type="date" name="dateendwork0" id="date-input" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="text-input" class="col-4 col-form-label">Company Name:</label>
-                    <div class="col-8">
-                        <input class="form-control" type="text" name="workname0" id="text-input" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="text-input" class="col-4 col-form-label">Speciality:</label>
-                    <div class="col-8">
-                        <input class="form-control" type="text" name="professionwork0" id="text-input" required>
-                    </div>
-                </div>
-                <div class="form-group" id="inputwork0">
-                </div>
-                <div class="form-group"  align="center">
+                <?php include '../app/views/WorkView.php'; ?>
+                <div class="form-group" id="work" align="center">
                     <input type="button" name="btnSubmit" class="btnContact" onclick="addWork()" value="Add More"/>
                 </div>
                 <div class="form-group row">
