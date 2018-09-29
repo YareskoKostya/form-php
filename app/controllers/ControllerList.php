@@ -9,7 +9,6 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
-use App\Core\View;
 use App\Models\ModelList;
 
 class ControllerList extends Controller
@@ -18,7 +17,6 @@ class ControllerList extends Controller
     {
         parent::__construct();
         $this->model = new ModelList($settings);
-        $this->view = new View();
     }
 
     function actionIndex()
