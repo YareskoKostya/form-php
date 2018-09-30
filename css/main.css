@@ -17,10 +17,7 @@ body{
     width: 350px;
 }
 .contact-form form{
-    padding-left: 7%;
-    padding-right: 7%;
-    padding-top: 3%;
-    padding-bottom: 5%;
+    padding: 3% 7% 5% 7%;
 }
 .contact-form label{
     font-weight: bold;
@@ -76,4 +73,13 @@ body{
 }
 #res{
     padding-bottom: 5%;
+}
+#div{
+    margin-bottom: -6%;
+}
+#int{
+    padding-top: 3%;
+}
+#study{
+    margin-top: -5%;
 }

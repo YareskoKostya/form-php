@@ -71,21 +71,21 @@
                         <input class="form-control" type="text" name="address" id="text-input" required>
                     </div>
                 </div>
-                <div class="form-group" align="center">
+                <div class="form-group" id="div" align="center">
                     <h5><label class="col-12 col-form-label">Education:</label></h5>
                 </div>
                 <?php include '../app/views/EducationView.php'; ?>
                 <div class="form-group"  id="study" align="center">
                     <input type="button" name="btnSubmit" class="btnContact" onclick="addStudy()" value="Add More"/>
                 </div>
-                <div class="form-group" align="center">
+                <div class="form-group" id="div" align="center">
                     <h5><label class="col-12 col-form-label">Work:</label></h5>
                 </div>
                 <?php include '../app/views/WorkView.php'; ?>
                 <div class="form-group" id="work" align="center">
                     <input type="button" name="btnSubmit" class="btnContact" onclick="addWork()" value="Add More"/>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row" id="int">
                     <label for="text-input" class="col-4 col-form-label">Your Interests:</label>
                     <div class="col-8">
                         <input class="form-control" type="text" name="interests" id="text-input" required>
