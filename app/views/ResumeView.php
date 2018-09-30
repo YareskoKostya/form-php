@@ -11,7 +11,7 @@
     <?php
     while ($dataresume = $data->fetch()) {
     ?>
-    <div class="row">
+    <div class="row" id="res">
         <div class="col-md-6">
             <div class="form-group" align="center">
                 <h4>Photo</h4>
