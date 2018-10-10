@@ -34,6 +34,7 @@ function addStudy() {
             $handlestudy = fopen($study, 'r');
             $contentsstudy = fread($handlestudy, filesize($study));
             $contentsstudy = str_replace(array("\r","\n"), "", $contentsstudy);
+            fclose($handlestudy);
         ?>
         $('<?php echo $contentsstudy; ?>').insertBefore("#study");
         x++;
@@ -50,6 +51,7 @@ function addWork() {
             $handlework = fopen($work, 'r');
             $contentswork = fread($handlework, filesize($work));
             $contentswork = str_replace(array("\r","\n"), "", $contentswork);
+            fclose($handlework);
         ?>
         $('<?php echo $contentswork; ?>').insertBefore("#work");
         y++;
