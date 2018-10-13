@@ -13,7 +13,8 @@ use App\Models\ModelResume;
 
 class ControllerResume extends Controller
 {
-    function __construct($settings) {
+    function __construct($settings)
+    {
         parent::__construct();
         $this->model = new ModelResume($settings);
     }
