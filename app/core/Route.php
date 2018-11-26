@@ -14,12 +14,12 @@ class Route {
 
         // get the name of the controller
         if (!empty($routes[1])) {
-            $controller_name = $routes[1];
+            $controller_name = ucfirst($routes[1]);
         }
 
         // get the name of the action
         if (!empty($routes[2])) {
-            $action_name = $routes[2];
+            $action_name = ucfirst($routes[2]);
         }
 
         // add prefixes

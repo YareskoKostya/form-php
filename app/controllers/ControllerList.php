@@ -21,8 +21,17 @@ class ControllerList extends Controller
 
     function actionIndex()
     {
-        $this->model->addData();
         $data = $this->model->getData();
         $this->view->generate('ListView.php', $data);
+    }
+
+    function actionForm1()
+    {
+        $this->model->addDataForm1();
+    }
+
+    function actionForm2()
+    {
+        $this->model->addDataForm2();
     }
 }
