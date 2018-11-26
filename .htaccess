@@ -1,12 +1,5 @@
-DirectoryIndex public_html/index.php
+DirectoryIndex public/index.php
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule .* public_html/index.php [L]
-
-AddType application/x-httpd-php .js
-AddHandler x-httpd-php7 .js
-
-<FilesMatch "\.(js|php)$">
-SetHandler application/x-httpd-php
-</FilesMatch>
+RewriteRule .* public/index.php [L]

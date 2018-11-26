@@ -1,102 +1,46 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Костя
- * Date: 22.09.2018
- * Time: 14:27
- */
-?>
-<div class="container contact-form" align="left">
-    <form enctype="multipart/form-data" action="/List" method="post">
-        <h2 id="h2main" align="center">Fill in resume</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group" align="center">
-                    <h4>Your Photo</h4>
-                    <img src="https://profile.actionsprout.com/default.jpeg" id='img-upload'/>
-                    <br/>
-                    <input type="file" name="photo" id="imgInp" hidden>
-                    <div class="form-group">
-                        <input type="button" name="btnSubmit" class="btnContact" onclick="addPhoto()" value="Add Photo"/>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group row">
-                    <label for="text-input" class="col-4 col-form-label">Your First Name:</label>
-                    <div class="col-8">
-                        <input class="form-control" type="text" name="name" id="text-input" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="text-input" class="col-4 col-form-label">Your Last Name:</label>
-                    <div class="col-8">
-                        <input class="form-control" type="text" name="surname" id="text-input" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="date-input" class="col-md-4 col-form-label">Your Birthdate:</label>
-                    <div class="col-md-8">
-                        <input class="form-control" type="date" name="birthdate" id="date-input" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="text-input" class="col-md-4 col-form-label">Your Country:</label>
-                    <div class="col-md-8">
-                        <select class="custom-select" name="country" id="text-input" required>
-                            <option selected></option>
-                            <option>Ukraine</option>
-                            <option>Belarus</option>
-                            <option>Moldova</option>
-                            <option>Poland</option>
-                            <option>Slovakia</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="text-input" class="col-4 col-form-label">Your Telephone:</label>
-                    <div class="col-8">
-                        <input class="form-control" type="tel" name="tel" id="text-input" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="text-input" class="col-4 col-form-label">Your Email:</label>
-                    <div class="col-8">
-                        <input class="form-control" type="email" name="email" id="text-input" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="text-input" class="col-4 col-form-label">Your Address:</label>
-                    <div class="col-8">
-                        <input class="form-control" type="text" name="address" id="text-input" required>
-                    </div>
-                </div>
-                <div class="form-group" id="div" align="center">
-                    <h5><label class="col-12 col-form-label">Education:</label></h5>
-                </div>
-                <?php include '../app/views/EducationView.php'; ?>
-                <div class="form-group"  id="study" align="center">
-                    <input type="button" name="btnSubmit" class="btnContact" onclick="addStudy()" value="Add More"/>
-                </div>
-                <div class="form-group" id="div" align="center">
-                    <h5><label class="col-12 col-form-label">Work:</label></h5>
-                </div>
-                <?php include '../app/views/WorkView.php'; ?>
-                <div class="form-group" id="work" align="center">
-                    <input type="button" name="btnSubmit" class="btnContact" onclick="addWork()" value="Add More"/>
-                </div>
-                <div class="form-group row" id="int">
-                    <label for="text-input" class="col-4 col-form-label">Your Interests:</label>
-                    <div class="col-8">
-                        <input class="form-control" type="text" name="interests" id="text-input" required>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br/>
-        <div class="form-group" align="center">
-            <input type="submit" name="btnSubmit" class="btnContact"  onclick="check()" value="Submit"/>
-        </div>
-    </form>
+<div style="overflow:hidden; width: 100%; height: 450px;">
+    <iframe width="100%" height="450"
+            src="https://maps.google.com/maps?width=100%&amp;height=450&amp;hl=en&amp;q=7060%20Hollywood%20Blvd%2C%20Los%20Angeles%2C%20CA+(%D0%9D%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+    </iframe>
 </div>
-<script src="../js/main.js"></script>
+<div class="container contact-form" align="center">
+    <h2 class="pt-4" align="center">To participate in the conference, please fill out the form:</h2>
+    <div class="tab col-9">
+        <form action="" method="post">
+            <p><input class="form-control" type="text" name="firstname" placeholder="first name*" required></p>
+            <p><input class="form-control" type="text" name="lastname" placeholder="last name*" required></p>
+            <p><input class="form-control" name="birthdate" id="datepicker" placeholder="birthdate*" required></p>
+            <p><input class="form-control" type="text" name="subject" placeholder="report subject*" required></p>
+            <?php include '../app/views/Country.php'; ?>
+            <p><input class="form-control" type="text" name="phone" id="phone" placeholder="phone*"required></p>
+            <p><input class="form-control" type="email" name="email" placeholder="email*" required></p>
+            <p align="right"><input type="submit" name="btnSubmit" class="btnContact"  onclick="check()" value="Next"/></p>
+        </form>
+    </div>
+
+    <div class="tab col-9">
+        <form enctype="multipart/form-data" action="" method="post">
+            <p><input class="form-control" type="text" name="company" placeholder="company*" required></p>
+            <p><input class="form-control" type="text" name="position" placeholder="position*" required></p>
+            <p><textarea class="form-control" rows="8" name="about" placeholder="about me*" required></textarea></p>
+            <div class="input-group mb-3">
+                <div class="custom-file">
+                    <label class="custom-file-label" for="inputPhoto">choose a photo</label>
+                    <input type="file" class="custom-file-input" id="inputPhoto">
+                </div>
+            </div>
+            <p align="right"><input type="submit" name="btnSubmit" class="btnContact"  onclick="check()" value="Next"/></p>
+        </form>
+    </div>
+
+    <div class="tab col-9">
+        <h4>Share the link on social networks</h4>
+        <button type="button" class="btn btn-lg btn-fb"><a href="#" target="_blank"><i class="fa fa-facebook pr-1"></i></a>Facebook</button>
+        <button type="button" class="btn btn-lg btn-tw"><i class="fa fa-twitter pr-1"></i> Twitter</button>
+        <button type="button" class="btn btn-lg btn-gp"><i class="fa fa-google-plus pr-1"></i> Google+</button>
+    </div>
+
+    <h2><a href="">All members</a></h2>
+
+</div>
+<script src="js/main.js"></script>
