@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Костя
- * Date: 23.09.2018
- * Time: 16:48
- */
 
 namespace App\Models;
 
@@ -27,7 +21,7 @@ class ModelList extends Model
             $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
             $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
-            $query = "INSERT INTO form_db.members VALUES (NULL, :firstname, :lastsurname, :birthdate, :subject, :country, :phone, :email)";
+            $query = "INSERT INTO form_db.tbl_1 VALUES (NULL, :firstname, :lastsurname, :birthdate, :subject, :country, :phone, :email)";
             $member = $this->pdo->prepare($query);
             $member->execute(['firstname' => $firstname, 'lastname' => $lastname, 'birthdate' => $birthdate, 'subject' => $subject,
                 'country' => $country, 'phone' => $phone, 'email' => $email]);
@@ -43,19 +37,20 @@ class ModelList extends Model
             if (!empty($_FILES['photo']['name'])) {
                 if ($_FILES['photo']['error'] == 0) {
                     if (substr($_FILES['photo']['type'], 0, 5) == 'image') {
-                        $photo = file_get_contents($_FILES['photo']['tmp_name']);
+                        $photo = time() . pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
+                        move_uploaded_file($_FILES['photo']['tmp_name'],'images/' . $photo);
                     }
                 }
             }
 
-            $query = "INSERT INTO resume_db.user_resume VALUES (NULL, :company, :position, :about, :photo)";
+            $query = "INSERT INTO form_db.tbl_2 VALUES (NULL, :company, :position, :about, :photo)";
             $member = $this->pdo->prepare($query);
             $member->execute(['company' => $company, 'position' => $position, 'about' => $about, 'photo' => $photo]);
         }
     }
 
     public function getData() {
-        $query = "SELECT * FROM form_db.members";
+        $query = "SELECT * FROM form_db.tbl_1 INNER JOIN form_db.tbl_2";
         $members = $this->pdo->query($query);
         return $members;
     }

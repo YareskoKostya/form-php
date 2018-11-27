@@ -12,7 +12,7 @@ class Model {
                 sprintf (
                     'mysql:host=%s;dbname=%s;port=%s;charset=%s',
                     $settings['host'],
-                    $settings['name'],
+                    $settings['dbname'],
                     $settings['port'],
                     $settings['charset']
                 ),
