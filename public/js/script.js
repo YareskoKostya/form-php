@@ -28,32 +28,12 @@ function showTab(n) {
 function next(n) {
     // This function will figure out which tab to display
     var x = document.getElementsByClassName("tab");
-    // Exit the function if any field in the current tab is invalid:
-    if (n == 1 && !validateForm()) return false;
     // Hide the current tab:
     x[currentTab].style.display = "none";
     // Increase or decrease the current tab by 1:
     currentTab = currentTab + n;
     // Otherwise, display the correct tab:
     showTab(currentTab);
-}
-
-function validateForm() {
-    // This function deals with validation of the form fields
-    var x, y, i, valid = true;
-    x = document.getElementsByClassName("tab");
-    y = x[currentTab].getElementsByTagName("input");
-    // A loop that checks every input field in the current tab:
-    for (i = 0; i < y.length; i++) {
-        // If a field is empty...
-        if (y[i].value == "") {
-            // add an "invalid" class to the field:
-            y[i].className += " invalid";
-            // and set the current valid status to false:
-            valid = false;
-        }
-    }
-    return valid; // return the valid status
 }
 
 function fixStepIndicator(n) {
@@ -71,18 +51,54 @@ function fixStepIndicator(n) {
 }
 
 $(document).ready(function () {
-    $('form').submit(function () {
-        var formID = $(this).attr('id');
-        var formNm = $('#' + formID);
+    $('#form1').submit(function () {
         $.ajax({
             type: 'POST',
-            url: '/list/' + formID,
-            data: formNm.serialize()
-        })
+            url: '/list/form1',
+            data: $('#form1').serialize(),
+            success: next(1),
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("Status: " + textStatus); alert("Error: " + errorThrown);
+            }
+        });
+        return false;
     });
-    return false;
 });
 
-if ( window.history.replaceState ) {
-    window.history.replaceState( null, null, window.location.href );
-}
+
+$(document).ready(function () {
+
+    $('#form2').submit(function (e) {
+
+        //stop submit the form, we will post it manually.
+        e.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "/list/form2",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            beforeSend: function(){
+                $('.btnContact').attr("disabled");
+                $('#form2').css("opacity",".5");
+            },
+            success: function (msg) {
+                console.log(msg);
+                $('#form2').css("opacity","");
+                $(".btnContact").removeAttr("disabled");
+                next(1);
+            },
+            error: function (e) {
+                console.log("ERROR : ", e);
+                $("#btnSubmit").prop("disabled", false);
+
+            }
+        });
+
+    });
+
+});

@@ -6,20 +6,20 @@
 <div class="container contact-form" align="center">
     <h2>To participate in the conference, please fill out the form:</h2>
     <div class="tab">
-        <form action="" method="post" id="form1">
+        <form method="post" id="form1">
             <p><input class="form-control" type="text" name="firstname" placeholder="first name*" required></p>
             <p><input class="form-control" type="text" name="lastname" placeholder="last name*" required></p>
             <p><input class="form-control" name="birthdate" id="datepicker" placeholder="birthdate*" required></p>
             <p><input class="form-control" type="text" name="subject" placeholder="report subject*" required></p>
             <?php include '../app/views/Country.php'; ?>
-            <p><input class="form-control" type="text" name="phone" id="phone" placeholder="phone*"required></p>
+            <p><input class="form-control" type="text" name="phone" id="phone" placeholder="phone*" required></p>
             <p><input class="form-control" type="email" name="email" placeholder="email*" required></p>
-            <p align="right"><input type="submit" name="btnSubmit" class="btnContact"  onclick="next(1)" value="Next"/></p>
+            <p align="right"><input type="submit" name="btnSubmit" class="btnContact" value="Next"/></p>
         </form>
     </div>
 
     <div class="tab">
-        <form enctype="multipart/form-data" action="" method="post" id="form2">
+        <form enctype="multipart/form-data" method="post" id="form2">
             <p><input class="form-control" type="text" name="company" placeholder="company*" required></p>
             <p><input class="form-control" type="text" name="position" placeholder="position*" required></p>
             <p><textarea class="form-control" rows="8" name="about" placeholder="about me*" required></textarea></p>
@@ -29,7 +29,7 @@
                     <input type="file" class="custom-file-input" name="photo" id="inputPhoto">
                 </div>
             </div>
-            <p align="right"><input type="submit" name="btnSubmit" class="btnContact"  onclick="next(2)" value="Next"/></p>
+            <p align="right"><input type="submit" name="btnSubmit" class="btnContact" value="Next"/></p>
         </form>
     </div>
 
@@ -46,7 +46,7 @@
         <span class="step"></span>
     </div>
 
-    <h2 class="mt-4"><a href="/List">All members</a></h2>
+    <h2 class="mt-4"><a href="/list">All members</a></h2>
 
 </div>
 <script src="js/script.js"></script>
