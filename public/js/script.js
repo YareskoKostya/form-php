@@ -14,11 +14,7 @@ $(document).ready( function() {
     });
 });
 
-
-
 function showTab(n) {
-    console.log(sessionStorage.getItem("is_reloaded"));
-
     // This function will display the specified tab of the form ...
     var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
@@ -67,7 +63,6 @@ $(document).ready(function () {
     });
 });
 
-
 $(document).ready(function () {
 
     $('#form2').submit(function (e) {
@@ -104,7 +99,6 @@ $(document).ready(function () {
     });
 
 });
-
 
 if (!sessionStorage.getItem("is_reloaded")) {
     currentTab = 0; // Current tab is set to be the first tab (0)

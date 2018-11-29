@@ -6,7 +6,10 @@ class Model {
 
     public $pdo;
 
-    public function __construct(array $settings) {
+    public function __construct() {
+
+        $settings = $GLOBALS['settings'];
+
         try{
             $this->pdo = new \PDO(
                 sprintf (

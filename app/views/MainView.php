@@ -35,9 +35,10 @@
 
     <div class="tab">
         <h4>Share the link on social networks</h4>
-        <input type="button" class="btn btn-lg btn-fb" onclick="location.href='http://facebook.com/share?url=http://form/';" value="Facebook"/>
-        <input type="button" class="btn btn-lg btn-tw" onclick="location.href='http://twitter.com/share?text=Check out this Meetup with SoCal AngularJS!&url=http://form/&hashtags=conference,AngularJS';" value="Twitter"/>
-        <input type="button" class="btn btn-lg btn-gp" onclick="location.href='http://plus.google.com/share?url=http://form/';" value="Google+"/>    </div>
+        <input type="button" class="btn btn-lg btn-fb" onclick="location.href='http://facebook.com/share?url=<?=$GLOBALS['url']?>'" value="Facebook"/>
+        <input type="button" class="btn btn-lg btn-tw" onclick="location.href='http://twitter.com/share?text=<?=$GLOBALS['message']?>&url=<?=$GLOBALS['url']?>&hashtags=conference,AngularJS';" value="Twitter"/>
+        <input type="button" class="btn btn-lg btn-gp" onclick="location.href='http://plus.google.com/share?url=<?=$GLOBALS['url']?>';" value="Google+"/>
+    </div>
 
     <!-- Circles which indicates the steps of the form: -->
     <div style="text-align:center;margin-top:30px;">

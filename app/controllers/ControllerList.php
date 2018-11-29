@@ -7,10 +7,10 @@ use App\Models\ModelList;
 
 class ControllerList extends Controller
 {
-    function __construct($settings)
+    function __construct()
     {
         parent::__construct();
-        $this->model = new ModelList($settings);
+        $this->model = new ModelList();
     }
 
     function actionIndex()

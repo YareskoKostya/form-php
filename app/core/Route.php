@@ -4,7 +4,7 @@ namespace App\Core;
 
 class Route {
 
-    static function start($settings)
+    static function start()
     {
         // controller and default action
         $controller_name = 'Main';
@@ -41,7 +41,7 @@ class Route {
 
         // create a controller
         $controller_name = "App\\Controllers\\" . $controller_name;
-        $controller = new $controller_name($settings);
+        $controller = new $controller_name();
         $action = $action_name;
 
         try {

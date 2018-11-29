@@ -7,9 +7,9 @@ use App\Core\Model;
 class ModelList extends Model
 {
 
-    public function __construct(array $settings)
+    public function __construct()
     {
-        parent::__construct($settings);
+        parent::__construct();
     }
 
     public function addDataForm1() {
