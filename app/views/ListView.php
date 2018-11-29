@@ -11,26 +11,25 @@
         </tr>
         </thead>
         <tbody>
-        <?php $i = 1;?>
-        <?php while ($datalist = $data->fetch()):?>
+        <?php foreach ($data->fetchAll() as $k => $member):?>
             <tr>
                 <th scope="row" style="vertical-align: middle">
-                    <?=$i++?>
+                    <?=++$k?>
                 </th>
                 <td>
-                    <img height="50px" src="images/<?=$datalist['photo'] ? : 'no-avatar.png'?>" alt="">
+                    <img height="50px" src="images/<?=$member['photo'] ? : 'no-avatar.png'?>" alt="">
                 </td>
                 <td style="vertical-align: middle">
-                    <?=$datalist['firstname'] . ' ' . $datalist['lastname']?>
+                    <?=$member['firstname'] . ' ' . $member['lastname']?>
                 </td>
                 <td style="vertical-align: middle">
-                    <?=$datalist['subject']?>
+                    <?=$member['subject']?>
                 </td>
                 <td style="vertical-align: middle">
-                    <?=$datalist['email']?>
+                    <?=$member['email']?>
                 </td>
             </tr>
-        <?php endwhile;?>
+        <?php endforeach;?>
         </tbody>
     </table>
 </div>

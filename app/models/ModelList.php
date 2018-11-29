@@ -6,7 +6,6 @@ use App\Core\Model;
 
 class ModelList extends Model
 {
-    private $id;
 
     public function __construct(array $settings)
     {
@@ -26,7 +25,7 @@ class ModelList extends Model
         $member = $this->pdo->prepare($query);
         $member->execute(['firstname' => $firstname, 'lastname' => $lastname, 'birthdate' => $birthdate, 'subject' => $subject,
             'country' => $country, 'phone' => $phone, 'email' => $email]);
-        $this->id = $this->pdo->lastInsertId();
+        $_SESSION['id'] = $this->pdo->lastInsertId();
     }
 
     public function addDataForm2() {
@@ -45,11 +44,11 @@ class ModelList extends Model
 
         $query = "INSERT INTO form_db.tbl_2 VALUES (NULL, :member_id, :company, :position, :about, :photo)";
         $member = $this->pdo->prepare($query);
-        $member->execute(['member_id' => $this->id, 'company' => $company, 'position' => $position, 'about' => $about, 'photo' => $photo]);
+        $member->execute(['member_id' => $_SESSION['id'], 'company' => $company, 'position' => $position, 'about' => $about, 'photo' => $photo]);
     }
 
     public function getData() {
-        $query = "SELECT t1.firstname, t1.lastname, t1.subject, t1.email, t2.photo FROM form_db.tbl_1 t1 INNER JOIN form_db.tbl_2 t2 ON t1.id=t2.member_id GROUP BY t1.email";
+        $query = "SELECT t1.firstname, t1.lastname, t1.subject, t1.email, t2.photo FROM form_db.tbl_1 t1 LEFT JOIN form_db.tbl_2 t2 ON t1.id=t2.member_id GROUP BY t1.email ORDER BY t1.id";
         $members = $this->pdo->query($query);
         return $members;
     }

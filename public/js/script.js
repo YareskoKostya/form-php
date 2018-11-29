@@ -14,15 +14,16 @@ $(document).ready( function() {
     });
 });
 
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
+
 
 function showTab(n) {
+    console.log(sessionStorage.getItem("is_reloaded"));
+
     // This function will display the specified tab of the form ...
     var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
     // ... and run a function that displays the correct step indicator:
-    fixStepIndicator(n)
+    fixStepIndicator(n);
 }
 
 function next(n) {
@@ -31,7 +32,8 @@ function next(n) {
     // Hide the current tab:
     x[currentTab].style.display = "none";
     // Increase or decrease the current tab by 1:
-    currentTab = currentTab + n;
+    currentTab = Number(sessionStorage.getItem("is_reloaded")) + n;
+    sessionStorage.setItem("is_reloaded", currentTab);
     // Otherwise, display the correct tab:
     showTab(currentTab);
 }
@@ -102,3 +104,12 @@ $(document).ready(function () {
     });
 
 });
+
+
+if (!sessionStorage.getItem("is_reloaded")) {
+    currentTab = 0; // Current tab is set to be the first tab (0)
+    showTab(currentTab); // Display the current tab
+} else {
+    currentTab = sessionStorage.getItem("is_reloaded"); // Current tab is set to be the first tab (0)
+    showTab(currentTab); // Display the current tab
+}

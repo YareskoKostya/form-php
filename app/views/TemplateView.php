@@ -28,6 +28,8 @@
     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
 </head>
 <body>
+
 <?php include '../app/views/' . $content_view; ?>
+
 </body>
 </html>
