@@ -6,14 +6,14 @@
     <p class="statusMsg"></p>
     <div class="tab">
         <form method="post" id="form1">
-            <p><input class="form-control" type="text" name="firstname" placeholder="first name*" required></p>
-            <p><input class="form-control" type="text" name="lastname" placeholder="last name*" required></p>
-            <p><input class="form-control" name="birthdate" id="datepicker" placeholder="birthdate*" required></p>
-            <p><input class="form-control" type="text" name="subject" placeholder="report subject*" required></p>
+            <p><input class="form-control" type="text" name="firstname" pattern="[A-Za-z]{1,32}" placeholder="first name*" required></p>
+            <p><input class="form-control" type="text" name="lastname" pattern="[A-Za-z]{1,32}" placeholder="last name*" required></p>
+            <p><input class="form-control" name="birthdate" id="datepicker" minlength="10" placeholder="birthdate*" required></p>
+            <p><input class="form-control" type="text" name="subject" pattern="[A-Za-z ]{1,80}" placeholder="report subject*" required></p>
             <?php include '../app/views/Country.php'; ?>
-            <p><input class="form-control" type="text" name="phone" id="phone" placeholder="phone*" required></p>
+            <p><input class="form-control" type="text" name="phone" id="phone" minlength="15" placeholder="phone*" required></p>
             <p><input class="form-control" type="email" name="email" placeholder="email*" required></p>
-            <p align="right"><input type="submit" name="btnSubmit" class="btnContact" value="Next"/></p>
+            <p align="right"><input type="submit" name="btnSubmit" class="btnContact" id="subForm1" value="Next"/></p>
         </form>
     </div>
 
@@ -25,10 +25,10 @@
             <div class="input-group mb-3">
                 <div class="custom-file">
                     <label class="custom-file-label" for="inputPhoto">choose a photo</label>
-                    <input type="file" class="custom-file-input" name="photo" id="inputPhoto" style="cursor: pointer">
+                    <input type="file" accept="image/*" class="custom-file-input" name="photo" id="inputPhoto" style="cursor: pointer">
                 </div>
             </div>
-            <p align="right"><input type="submit" name="btnSubmit" class="btnContact" value="Next"/></p>
+            <p align="right"><input type="submit" name="btnSubmit" class="btnContact" id="subForm2" value="Next"/></p>
         </form>
     </div>
 

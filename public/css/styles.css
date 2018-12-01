@@ -94,22 +94,10 @@ input:valid {
     border-color: green;
 }
 
-input:invalid {
+.invalid {
     border-color: red;
 }
 
-select:valid {
+.valid {
     border-color: green;
-}
-
-textarea:valid {
-    border-color: green;
-}
-
-.custom-file-label {
-    border-color: green;
-}
-
-.custom-file-label:hover {
-    background-color: red;
 }
