@@ -1,6 +1,6 @@
 <p>
     <select  class="custom-select" name="country" required>
-        <option selected>country*</option>
+        <option value="">country*</option>
         <option value="United States">United States</option>
         <option value="United Kingdom">United Kingdom</option>
         <option value="Afghanistan">Afghanistan</option>
