@@ -47,7 +47,7 @@
         <span class="step"></span>
     </div>
 
-    <h2 class="mt-4"><a href="/list">All members</a></h2>
+    <h2 class="mt-4"><a href="/list">All members (<?=$data->fetchColumn()?>)</a></h2>
 
 </div>
 <script src="js/script.js"></script>
