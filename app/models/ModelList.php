@@ -6,12 +6,17 @@ use App\Core\Model;
 
 class ModelList extends Model
 {
-
+    /**
+     * ModelList constructor.
+     */
     public function __construct()
     {
         parent::__construct();
     }
 
+    /**
+     *
+     */
     public function addDataForm1() {
         $firstname = filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING);
         $lastname = filter_input(INPUT_POST, 'lastname', FILTER_SANITIZE_STRING);
@@ -28,6 +33,9 @@ class ModelList extends Model
         $_SESSION['id'] = $this->pdo->lastInsertId();
     }
 
+    /**
+     *
+     */
     public function addDataForm2() {
         $company = filter_input(INPUT_POST, 'company', FILTER_SANITIZE_STRING);
         $position = filter_input(INPUT_POST, 'position', FILTER_SANITIZE_STRING);
@@ -40,6 +48,8 @@ class ModelList extends Model
                     move_uploaded_file($_FILES['photo']['tmp_name'],'images/' . $photo);
                 }
             }
+        } else {
+            $photo = null;
         }
 
         $query = "INSERT INTO form_db.tbl_2 VALUES (NULL, :member_id, :company, :position, :about, :photo)";
@@ -47,6 +57,9 @@ class ModelList extends Model
         $member->execute(['member_id' => $_SESSION['id'], 'company' => $company, 'position' => $position, 'about' => $about, 'photo' => $photo]);
     }
 
+    /**
+     * @return bool|\PDOStatement
+     */
     public function getData() {
         $query = "SELECT t1.firstname, t1.lastname, t1.subject, t1.email, t2.photo FROM form_db.tbl_1 t1 LEFT JOIN form_db.tbl_2 t2 ON t1.id=t2.member_id GROUP BY t1.email ORDER BY t1.id";
         $members = $this->pdo->query($query);

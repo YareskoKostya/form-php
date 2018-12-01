@@ -1,3 +1,8 @@
+var dateMask = new IMask(
+    document.getElementById('datepicker'), {
+        mask: '00/00/0000'
+    });
+
 var phoneMask = new IMask(
     document.getElementById('phone'), {
         mask: '+{1}(000)000-0000'
@@ -28,8 +33,8 @@ function next(n) {
     // Hide the current tab:
     x[currentTab].style.display = "none";
     // Increase or decrease the current tab by 1:
-    currentTab = Number(sessionStorage.getItem("is_reloaded")) + n;
-    sessionStorage.setItem("is_reloaded", currentTab);
+    currentTab = Number(sessionStorage.getItem("show_tab")) + n;
+    sessionStorage.setItem("show_tab", currentTab);
     // Otherwise, display the correct tab:
     showTab(currentTab);
 }
@@ -54,9 +59,23 @@ $(document).ready(function () {
             type: 'POST',
             url: '/list/form1',
             data: $('#form1').serialize(),
-            success: next(1),
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
-                alert("Status: " + textStatus); alert("Error: " + errorThrown);
+            beforeSend: function(){
+                $('.btnContact').attr("disabled");
+                $('#form2').css("opacity",".5");
+            },
+            success: function (msg) {
+                console.log(msg);
+                $('#form2').css("opacity","");
+                $(".btnContact").removeAttr("disabled");
+                if (!msg) {
+                    next(1);
+                } else {
+                    $('.statusMsg').html('<span style="font-size:18px;color:#EA4335">Some problem occurred, please try again:<br/>' + msg + '</span>');
+                }
+            },
+            error: function (e) {
+                console.log("ERROR : ", e);
+                $(".btnContact").removeAttr("disabled");
             }
         });
         return false;
@@ -64,12 +83,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-
-    $('#form2').submit(function (e) {
-
-        //stop submit the form, we will post it manually.
-        e.preventDefault();
-
+    $('#form2').submit(function () {
         $.ajax({
             type: "POST",
             enctype: 'multipart/form-data',
@@ -87,23 +101,27 @@ $(document).ready(function () {
                 console.log(msg);
                 $('#form2').css("opacity","");
                 $(".btnContact").removeAttr("disabled");
-                next(1);
+                if (!msg) {
+                    next(1);
+                } else {
+                    $('.statusMsg').html('<span style="font-size:18px;color:#EA4335">Some problem occurred, please try again:<br/>' + msg + '</span>');
+                }
             },
             error: function (e) {
                 console.log("ERROR : ", e);
-                $("#btnSubmit").prop("disabled", false);
-
+                $(".btnContact").removeAttr("disabled");
             }
         });
-
+        return false;
     });
-
 });
 
-if (!sessionStorage.getItem("is_reloaded")) {
-    currentTab = 0; // Current tab is set to be the first tab (0)
-    showTab(currentTab); // Display the current tab
+if (!sessionStorage.getItem("show_tab")) {
+    // Current tab is set to be the first tab (0)
+    currentTab = 0;
+    // Display the current tab
+    showTab(currentTab);
 } else {
-    currentTab = sessionStorage.getItem("is_reloaded"); // Current tab is set to be the first tab (0)
-    showTab(currentTab); // Display the current tab
+    currentTab = sessionStorage.getItem("show_tab");
+    showTab(currentTab);
 }

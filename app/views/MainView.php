@@ -1,10 +1,9 @@
-<div style="overflow:hidden; width: 100%; height: 450px;">
-    <iframe width="100%" height="450"
-            src="https://maps.google.com/maps?width=100%&amp;height=450&amp;hl=en&amp;q=7060%20Hollywood%20Blvd%2C%20Los%20Angeles%2C%20CA+(%D0%9D%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-    </iframe>
+<div class="map">
+    <iframe width="100%" height="450" src="https://maps.google.com/maps?width=100%&amp;height=450&amp;hl=en&amp;q=7060%20Hollywood%20Blvd%2C%20Los%20Angeles%2C%20CA+(%D0%9D%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 </div>
 <div class="container contact-form" align="center">
-    <h2>To participate in the conference, please fill out the form:</h2>
+    <h2 class="pb-4">To participate in the conference, please fill out the form:</h2>
+    <p class="statusMsg"></p>
     <div class="tab">
         <form method="post" id="form1">
             <p><input class="form-control" type="text" name="firstname" placeholder="first name*" required></p>
@@ -26,7 +25,7 @@
             <div class="input-group mb-3">
                 <div class="custom-file">
                     <label class="custom-file-label" for="inputPhoto">choose a photo</label>
-                    <input type="file" class="custom-file-input" name="photo" id="inputPhoto">
+                    <input type="file" class="custom-file-input" name="photo" id="inputPhoto" style="cursor: pointer">
                 </div>
             </div>
             <p align="right"><input type="submit" name="btnSubmit" class="btnContact" value="Next"/></p>
@@ -41,7 +40,7 @@
     </div>
 
     <!-- Circles which indicates the steps of the form: -->
-    <div style="text-align:center;margin-top:30px;">
+    <div>
         <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>
