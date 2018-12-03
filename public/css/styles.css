@@ -101,3 +101,7 @@ input:valid {
 .valid {
     border-color: green;
 }
+
+.divBut {
+    width: 50%;
+}

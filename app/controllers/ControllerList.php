@@ -19,7 +19,7 @@ class ControllerList extends Controller
     /**
      *
      */
-    function actionIndex()
+    function actionPage()
     {
         $data = $this->model->getData();
         $this->view->generate('ListView.php', $data);
