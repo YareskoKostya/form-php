@@ -11,7 +11,7 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($data->fetchAll() as $member):?>
+        <?php while ($member = $data->fetch()):?>
             <tr>
                 <th scope="row" style="vertical-align: middle">
                     <?=++$_SESSION['start']?>
@@ -29,18 +29,18 @@
                     <?=$member['email']?>
                 </td>
             </tr>
-        <?php endforeach;?>
+        <?php endwhile;?>
         </tbody>
     </table>
 
     <div class="row mt-4">
-        <div class="divBut" align="left" <?php if ($_SESSION['page'] == 1):?> style="display: none" <?php endif ?>>
-            <input type="button" class="btnContact" id="prev" onclick="page(-1)" value="Prev"/>
+        <div class="col divBut" align="left" <?php if ($_SESSION['page'] == 1):?> style="display: none" <?php endif ?>>
+            <input type="button" class="btnContact btn" id="prev" onclick="page(-1)" value="Prev"/>
         </div>
 
 
-        <div class="divBut" align="right" <?php if ($_SESSION['page'] == $_SESSION['total']):?> style="display: none" <?php endif ?>>
-            <input type="button" class="btnContact" id="next" onclick="page(1)" value="Next"/>
+        <div class="col divBut" align="right" <?php if ($_SESSION['page'] == $_SESSION['total']):?> style="display: none" <?php endif ?>>
+            <input type="button" class="btnContact btn" id="next" onclick="page(1)" value="Next"/>
         </div>
 
     </div>

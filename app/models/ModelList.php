@@ -78,7 +78,6 @@ class ModelList extends Model
 
 
         $start = $page * $number - $number;
-        $num = $number * $page;
 
         $_SESSION['start'] = $start;
 // Находим общее число страниц
@@ -95,10 +94,10 @@ class ModelList extends Model
         //$start = $page * $num - $num + 1;
 // Выбираем $num сообщений начиная с номера $start
 
-        $query = "SELECT t1.firstname, t1.lastname, t1.subject, t1.email, t2.photo FROM form_db.tbl_1 t1 LEFT JOIN form_db.tbl_2 t2 ON t1.id=t2.member_id GROUP BY t1.email ORDER BY t1.id LIMIT :start, :num";
+        $query = "SELECT t1.firstname, t1.lastname, t1.subject, t1.email, t2.photo FROM form_db.tbl_1 t1 LEFT JOIN form_db.tbl_2 t2 ON t1.id=t2.member_id GROUP BY t1.email ORDER BY t1.id LIMIT :start, :number";
         $members = $this->pdo->prepare($query);
         $members->bindParam(":start",$start, \PDO::PARAM_INT);
-        $members->bindParam(":num",$num, \PDO::PARAM_INT);
+        $members->bindParam(":number",$number, \PDO::PARAM_INT);
         $members->execute();
         //$members->execute(['start' => $start, 'num' => $num]);
         return $members;
