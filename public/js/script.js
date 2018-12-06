@@ -1,3 +1,43 @@
+// get the country data from the plugin
+var countryData = window.intlTelInputGlobals.getCountryData(),
+    input2 = document.querySelector("#phone"),
+    addressDropdown = document.querySelector("#address-country");
+
+// init plugin
+var iti = window.intlTelInput(input2, {
+    utilsScript: "js/utils.js" // just for formatting/placeholders etc
+});
+
+// populate the country dropdown
+for (var i = 0; i < countryData.length; i++) {
+    var country = countryData[i];
+    var optionNode = document.createElement("option");
+    optionNode.value = country.iso2;
+    var textNode = document.createTextNode(country.name);
+    optionNode.appendChild(textNode);
+    addressDropdown.appendChild(optionNode);
+}
+// set it's initial value
+addressDropdown.value = iti.getSelectedCountryData().iso2;
+
+// listen to the telephone input for changes
+input2.addEventListener('countrychange', function(e) {
+    addressDropdown.value = iti.getSelectedCountryData().iso2;
+    console.log(input2.placeholder.replace(/[0-9]/g, 0));
+
+    var phoneMask = new IMask(
+        document.getElementById('phone2'), {
+            mask: input2.placeholder.replace(/[0-9]/g, 0)
+        });
+});
+
+// listen to the address dropdown for changes
+addressDropdown.addEventListener('change', function() {
+    iti.setCountry(this.value);
+});
+
+console.log(input2.placeholder.value);
+
 $('#datepicker').datepicker({
     uiLibrary: 'bootstrap4'
 });
@@ -5,11 +45,6 @@ $('#datepicker').datepicker({
 var dateMask = new IMask(
     document.getElementById('datepicker'), {
         mask: '00/00/0000'
-    });
-
-var phoneMask = new IMask(
-    document.getElementById('phone'), {
-        mask: '+{1}(000)000-0000'
     });
 
 var select = document.querySelector('select');
@@ -186,4 +221,13 @@ if (!sessionStorage.getItem("show_tab")) {
 } else {
     currentTab = sessionStorage.getItem("show_tab");
     showTab(currentTab);
+}
+
+if (window.performance) {
+    console.info("window.performance works fine on this browser");
+}
+if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+    console.info( "This page is reloaded" );
+} else {
+    console.info( "This page is not reloaded");
 }

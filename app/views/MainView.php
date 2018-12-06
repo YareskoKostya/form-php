@@ -11,7 +11,17 @@
             <p><input class="form-control" name="birthdate" id="datepicker" minlength="10" placeholder="birthdate*" required></p>
             <p><input class="form-control" type="text" name="subject" pattern="[A-Za-z ]{1,80}" placeholder="report subject*" required></p>
             <?php include '../app/views/Country.php'; ?>
-            <p><input class="form-control" type="text" name="phone" id="phone" minlength="15" placeholder="phone*" required></p>
+            <div class="form-item">
+                <label>Telephone number</label>
+                <input id="phone" type="tel">
+            </div>
+
+            <div class="form-item">
+
+
+                <select id="address-country"></select>
+            </div>
+            <p><input class="form-control" type="text" name="phone" id="phone2" minlength="15" placeholder="phone*" required></p>
             <p><input class="form-control" type="email" name="email" placeholder="email*" required></p>
             <p align="right"><input type="submit" name="btnSubmit" class="btnContact" id="subForm1" value="Next"/></p>
         </form>
@@ -49,4 +59,10 @@
     <h2 class="mt-4"><a href="/list/page/1">All members (<?=$data->fetchColumn()?>)</a></h2>
 
 </div>
+
+<script src="js/intlTelInput.min.js"></script>
+<script src="js/intlTelInput-jquery.min.js"></script>
+
+<script class="iti-load-utils" async="" src="js/utils.js"></script>
+
 <script src="js/script.js"></script>

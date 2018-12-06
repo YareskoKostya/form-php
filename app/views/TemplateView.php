@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <!-- Bootstrap 4 DatePicker CSS -->
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
+    <link rel="stylesheet" href="/css/intlTelInput.css">
     <title>Registration Form</title>
 
     <!-- Optional JavaScript -->
